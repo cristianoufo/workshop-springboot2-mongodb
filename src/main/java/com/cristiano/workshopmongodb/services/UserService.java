@@ -6,8 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cristiano.workshopmongodb.domain.Post;
 import com.cristiano.workshopmongodb.domain.User;
 import com.cristiano.workshopmongodb.dto.UserDTO;
+import com.cristiano.workshopmongodb.repository.PostRepository;
 import com.cristiano.workshopmongodb.repository.UserRepository;
 import com.cristiano.workshopmongodb.services.exception.ObjectNotFoundException;
 
@@ -49,4 +51,5 @@ public class UserService {
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getNome(), objDto.getEmail());
 	}
+	
 }
