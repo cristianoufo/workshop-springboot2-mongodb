@@ -8,9 +8,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import com.cristiano.workshopmongodb.services.exception.AuthorizationException;
 
-import com.cristiano.workshopmongodb.services.exception.ObjectNotFoundException;
+import com.cristiano.workshopmongodb.services.exception.AuthorizationException;
 import com.cristiano.workshopmongodb.services.exception.DataIntegrityException;
 import com.cristiano.workshopmongodb.services.exception.FileException;
 import com.cristiano.workshopmongodb.services.exception.ObjectNotFoundException;
