@@ -15,37 +15,38 @@ import com.cristiano.workshopmongodb.services.exception.ObjectNotFoundException;
 public class UserService {
 
 	@Autowired
-	private UserRepository userRepository;
-
+	private UserRepository repo;
+	
 	public List<User> findAll() {
-		return userRepository.findAll();
+		return repo.findAll();
 	}
-
+	
 	public User findById(String id) {
-		Optional<User> obj = userRepository.findById(id);
+		Optional<User> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
-
+	
 	public User insert(User obj) {
-		return userRepository.insert(obj);
+		return repo.insert(obj);
 	}
-
+	
 	public void delete(String id) {
 		findById(id);
-		userRepository.deleteById(id);
+		repo.deleteById(id);
 	}
-
+	
 	public User update(User obj) {
 		User newObj = findById(obj.getId());
 		updateData(newObj, obj);
-		return userRepository.save(newObj);
-		}
+		return repo.save(newObj);
+	}
 	
 	private void updateData(User newObj, User obj) {
 		newObj.setNome(obj.getNome());
 		newObj.setEmail(obj.getEmail());
 	}
-	public User fromDTO(UserDTO objDTO) {
-		return new User(objDTO.getId(), objDTO.getEmail(), objDTO.getNome());
+
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getNome(), objDto.getEmail());
 	}
 }
